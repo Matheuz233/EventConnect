@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [EventController::class, 'index']);
+Route::get('/events/create', [EventController::class, 'create']);
+
+Route::get('/products', [ProductController::class, 'index']);
+
+Route::get('/contact', [ContactController::class, 'index']);
