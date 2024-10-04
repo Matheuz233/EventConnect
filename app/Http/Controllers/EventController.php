@@ -19,17 +19,26 @@ class EventController extends Controller
         return view('events.create');
     }
 
+
     public function store(Request $request)
     {
-        $event = new Event();
+        $extension = $request->file('image')->extension();
+        $file_name = md5($request->file('image')->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+        # This will upload inside the directory
+        $request->file('image')->move(public_path('img/events'), $file_name);
+
+        $event = new Event;
 
         $event->title = $request->title;
         $event->city = $request->city;
         $event->private = $request->private;
         $event->description = $request->description;
+        $event->image = $file_name;
+
 
         $event->save();
 
-        return redirect('/')->with('msg', 'Evento criado com sucesso!');
+        return redirect('/')->with('msg', 'Evento criado com sucesso 👏🏻!');
     }
 }
