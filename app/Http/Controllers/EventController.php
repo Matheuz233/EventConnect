@@ -35,6 +35,7 @@ class EventController extends Controller
         $event->private = $request->private;
         $event->description = $request->description;
         $event->image = $file_name;
+        $event->items = $request->items;
 
 
         $event->save();
@@ -42,9 +43,10 @@ class EventController extends Controller
         return redirect('/')->with('msg', 'Evento criado com sucesso 👏🏻!');
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $event = Event::findOrFail($id);
-        
+
         return view('events.show', ['event' => $event]);
     }
 }

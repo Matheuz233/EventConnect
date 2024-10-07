@@ -31,9 +31,26 @@
                 <label for="image">Imagem do Evento:</label>
                 <input type="file" id="image" name="image" class="form-control-file">
             </div>
+            <div class="form-group">
+                <label for="image">Adicione itens de infraestrutura:</label>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" id="Cadeiras" value="Cadeiras"> Cadeiras
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Palco"> Palco
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Refrigerante"> Refrigerante
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Comida"> Comida
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="items[]" value="Brindes"> Brindes
+                </div>
+            </div>
+
             <input type="submit" class="btn btn-primary" value="Criar Evento">
-
-
         </form>
     </div>
 
