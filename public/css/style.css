@@ -107,7 +107,7 @@ header {
     max-width: 25%;
     border-radius: 10px;
     padding: 0;
-    margin: .5%;
+    margin: 0.5%;
 }
 
 #events-container img {
@@ -134,18 +134,55 @@ header {
 }
 
 /* Event Create Page */
-#event-create-container{
+#event-create-container {
     padding: 30px;
 }
 
-#event-create-container label{
+#event-create-container label {
     font-weight: bold;
 }
 
 #event-create-container input,
 #event-create-container select,
-#event-create-container textarea{
+#event-create-container textarea {
     font-size: 12px;
+}
+
+/* Event page */
+#image-container,
+#info-container {
+    margin-top: 30px;
+}
+
+#image-container img {
+    border-radius: 10px;
+}
+
+#info-container h1 {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+#info-container p {
+    margin: 0;
+    font-size: 14px;
+    display: flex;
+}
+
+#info-container h3,
+#description-container h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#info-container ion-icon {
+    font-size: 20px;
+    color: #f2a340;
+    margin-right: 5px;
+}
+
+#info-container #event-submit {
+    margin: 20px 0;
 }
 
 /* footer */
