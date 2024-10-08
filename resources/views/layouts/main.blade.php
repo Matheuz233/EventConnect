@@ -63,7 +63,7 @@
         </div>
     </main>
     <footer>
-        <p>HDC Events &copy; 2024</p>
+        <p>EventConnect &copy; 2024</p>
     </footer>
 </body>
 

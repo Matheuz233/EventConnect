@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Event;
 
@@ -11,8 +12,8 @@ class EventController extends Controller
     {
         $search = request('search');
 
-        if($search){
-            $events = Event::where([['title', 'like', '%'.$search.'%']])->get();
+        if ($search) {
+            $events = Event::where([['title', 'like', '%' . $search . '%']])->get();
         } else {
             $events = Event::all();
         }
@@ -44,6 +45,8 @@ class EventController extends Controller
         $event->image = $file_name;
         $event->items = $request->items;
 
+        $user = auth()->user();
+        $event->user_id = $user->id;
 
         $event->save();
 
@@ -54,6 +57,8 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        return view('events.show', ['event' => $event]);
+        $eventOwner = User::where('id', $event->user_id)->first()->toArray();
+
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
     }
 }
