@@ -61,4 +61,12 @@ class EventController extends Controller
 
         return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
     }
+
+    public function dashboard(){
+        $user = auth()->user();
+
+        $events = Event::where('user_id', $user->id)->get();
+
+        return view('events.dashboard', ['events' => $events]);
+    }
 }

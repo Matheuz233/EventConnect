@@ -185,12 +185,12 @@ header {
     margin: 20px 0;
 }
 
-#items-list{
+#items-list {
     list-style: none;
     padding-left: 0;
 }
 
-#items-list li{
+#items-list li {
     display: flex;
 }
 
@@ -207,4 +207,13 @@ footer {
 
 footer p {
     margin-bottom: 0;
+}
+
+/* Dashboard */
+.dashboard-title-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.dashboard-events-container th {
+    width: 25%;
 }
