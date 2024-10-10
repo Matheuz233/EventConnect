@@ -62,11 +62,33 @@ class EventController extends Controller
         return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
     }
 
-    public function dashboard(){
+    public function dashboard()
+    {
         $user = auth()->user();
 
         $events = Event::where('user_id', $user->id)->get();
 
         return view('events.dashboard', ['events' => $events]);
+    }
+
+    public function destroy($id)
+    {
+        Event::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+    }
+
+    public function edit($id)
+    {
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event' => $event]);
+    }
+
+    public function update(Request $request)
+    {
+        Event::findOrFail($request->id)->update($request->all());
+
+        return redirect('/dashboard')->with('msg', 'Evento editado com sucesso!');
     }
 }
